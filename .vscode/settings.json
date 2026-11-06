@@ -11,5 +11,7 @@
     "editor.insertSpaces": true
   },
   "dbt.dbtIntegration": "core",
-  "dbt.enableNewLineagePanel": true
+  "dbt.enableNewLineagePanel": true,
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "dbt.dbtPythonPathOverride": "${workspaceFolder}/.venv/Scripts/python.exe"
 }
