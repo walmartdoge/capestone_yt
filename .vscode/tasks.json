@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dbt run (všechny modely)",
+      "type": "shell",
+      "command": "dbt run",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "dbt run (aktuální soubor)",
+      "type": "shell",
+      "command": "dbt run --select ${fileBasenameNoExtension}"
+    },
+    {
+      "label": "dbt test",
+      "type": "shell",
+      "command": "dbt test"
+    },
+    {
+      "label": "dbt build",
+      "type": "shell",
+      "command": "dbt build"
+    },
+    {
+      "label": "dbt debug",
+      "type": "shell",
+      "command": "dbt debug"
+    }
+  ]
+}

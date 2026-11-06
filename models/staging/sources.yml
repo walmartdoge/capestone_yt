@@ -1,0 +1,70 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: "{{ target.user }}_{{ var('project_name', 'yt') }}_raw"
+    description: "Surová vrstva datového skladu ClickHouse (<username>_<project>_raw)"
+    tables:
+      - name: nyc_yellow_taxi
+        description: "Záznamy o jízdách žlutých taxíků v New Yorku (Yellow Taxi)"
+        columns:
+          - name: VendorID
+            description: "Kód poskytovatele technologie (1=Creative Mobile, 2=VeriFone)"
+          - name: tpep_pickup_datetime
+            description: "Datum a čas nástupu cestujícího"
+          - name: tpep_dropoff_datetime
+            description: "Datum a čas výstupu"
+          - name: PULocationID
+            description: "Nástupní zóna taxíku (cizí klíč do taxi_zones)"
+          - name: DOLocationID
+            description: "Výstupní zóna taxíku (cizí klíč do taxi_zones)"
+          - name: passenger_count
+            description: "Počet přepravovaných pasažérů"
+          - name: trip_distance
+            description: "Ujetá vzdálenost v mílích"
+          - name: payment_type
+            description: "Typ platby (1=Karta, 2=Hotovost, 3=Bez poplatku, 4=Spor, 5=Neznámé, 6=Zrušeno)"
+          - name: fare_amount
+            description: "Základní jízdné podle taxametru"
+          - name: tip_amount
+            description: "Spropitné v USD"
+          - name: total_amount
+            description: "Celková zaplacená částka včetně poplatků"
+
+      - name: nyc_green_taxi
+        description: "Záznamy o jízdách zelených taxíků v New Yorku (Green Taxi - 3 249 705 řádků)"
+        columns:
+          - name: VendorID
+            description: "Kód poskytovatele technologie (1=Creative Mobile, 2=VeriFone)"
+          - name: lpep_pickup_datetime
+            description: "Datum a čas nástupu cestujícího"
+          - name: lpep_dropoff_datetime
+            description: "Datum a čas výstupu"
+          - name: PULocationID
+            description: "Nástupní zóna taxíku (cizí klíč do taxi_zones)"
+          - name: DOLocationID
+            description: "Výstupní zóna taxíku (cizí klíč do taxi_zones)"
+          - name: passenger_count
+            description: "Počet přepravovaných pasažérů"
+          - name: trip_distance
+            description: "Ujetá vzdálenost v mílích"
+          - name: payment_type
+            description: "Typ platby (1=Karta, 2=Hotovost, 3=Bez poplatku, 4=Spor, 5=Neznámé, 6=Zrušeno)"
+          - name: fare_amount
+            description: "Základní jízdné podle taxametru"
+          - name: tip_amount
+            description: "Spropitné v USD"
+          - name: total_amount
+            description: "Celková zaplacená částka včetně poplatků"
+
+      - name: taxi_zones
+        description: "Číselník 265 newyorských taxi zón a čtvrtí"
+        columns:
+          - name: LocationID
+            description: "Primární klíč zóny"
+          - name: Borough
+            description: "Městská čtvrť (Manhattan, Brooklyn, Queens, Bronx, Staten Island, EWR)"
+          - name: Zone
+            description: "Název konkrétní lokality"
+          - name: service_zone
+            description: "Servisní zóna (Yellow Zone, Boro Zone, Airports, EWR)"

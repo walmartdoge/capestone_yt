@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "innoverio.vscode-dbt-power-user",
+    "cldwalker.clickhouse-language-support",
+    "samuelcolvin.jinjahtml",
+    "redhat.vscode-yaml",
+    "ms-python.python"
+  ]
+}

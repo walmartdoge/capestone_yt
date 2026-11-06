@@ -1,0 +1,44 @@
+# Identifikátor projektu (např. 'yt', 'gt', 'capstone') - určuje názvy schémat v ClickHouse:
+# <login>_<name>_raw -> <login>_<name>_staging -> <login>_<name>_marts
+name: 'yt'
+version: '1.0.0'
+config-version: 2
+
+vars:
+  project_name: 'yt'
+
+# Vypnutí odesílání anonymních statistik a telemetrie
+flags:
+  send_anonymous_usage_stats: false
+
+# Profil pro připojení definovaný v profiles.yml
+profile: 'dbs_project'
+
+# Adresářová struktura modelů
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Konfigurace materializací pro jednotlivé vrstvy
+models:
+  yt:
+    # 1. Vrstva: Staging (standardně virtuální pohledy - views)
+    staging:
+      +materialized: view
+      +schema: staging
+
+    # 2. Vrstva: Intermediate (pomocné byznysové mezikroky - ephemeral nebo view)
+    intermediate:
+      +materialized: ephemeral
+
+    # 3. Vrstva: Marts (analytické trhy pro Metabase BI - fyzické tabulky)
+    marts:
+      +materialized: table
+      +schema: marts

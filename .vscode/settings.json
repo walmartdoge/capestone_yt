@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "*.sql": "jinja-sql"
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "terminal.integrated.env.windows": {
+    "PATH": "${workspaceFolder}\\.venv\\Scripts;${env:PATH}"
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "dbt.dbtIntegration": "core",
+  "dbt.enableNewLineagePanel": true
+}

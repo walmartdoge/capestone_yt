@@ -1,0 +1,23 @@
+# ==============================================================================
+# Gitignore pro Modern Data Stack (dbt Core, ClickHouse, Kestra, Python)
+# ==============================================================================
+
+# dbt artefakty, logy a lokální profily s hesly
+**/target/
+**/dbt_packages/
+**/logs/
+**/.user.yml
+**/profiles.yml
+.env
+.env.*
+!.env.example
+
+# Python virtuální prostředí a cache
+**/.venv/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE & OS specifické soubory
+.DS_Store
+Thumbs.db
